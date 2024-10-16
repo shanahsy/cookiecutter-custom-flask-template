@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{cookiecutter.project_name}}</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+
+<body>
+    <div class="left-alignment">
+        <a href="/" style="font-size: 40px; text-decoration: none;"><b>{{cookiecutter.project_name}}</b></a>
+        <div class="right-alignment">
+            {% raw %}{% if logged_in %}
+                <a href="/accounts/edit/">{{logname}}</a> 
+                <span class="vertical-line"></span>
+                <form action="/accounts/logout/" method="post" enctype="multipart/form-data">
+                    <input type="submit" name="logout" value="Logout"/>
+                </form>
+            {% endif %}{% endraw %}
+        </div>
+    </div>
+
+    <hr class="horizontal-line">
+    Hello world
+    {% raw %}
+    <!-- <div id="reactEntry">
+        Loading ...
+    </div>
+    <script src="{{ url_for('static', filename='js/bundle.js') }}"></script> -->
+    {% endraw %}
+      
+</body>
+
+</html>

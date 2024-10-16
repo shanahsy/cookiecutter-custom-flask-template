@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{cookiecutter.project_name}}</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+
+<body>
+    <div class="left-alignment">
+        <a href="/" style="font-size: 40px; text-decoration: none;"><b>{{cookiecutter.project_name}}</b></a>
+        <div class="right-alignment">
+            {% raw %}{% if logged_in %}
+                <a href="/accounts/edit/">{{logname}}</a> 
+                <span class="vertical-line"></span>
+                <form action="/accounts/logout/" method="post" enctype="multipart/form-data">
+                    <input type="submit" name="logout" value="Logout"/>
+                </form>
+            {% endif %}{% endraw %}
+        </div>
+    </div>
+
+    <hr class="horizontal-line">
+
+    <div>
+        {% raw %}{{ logname }}{% endraw %}
+    </div>
+
+    {% raw %}
+    <!-- DO NOT CHANGE THIS -->
+    <form action="{{url_for('login')}}?target={{url_for('show_create')}}" method="post" enctype="multipart/form-data">
+        <div class="form">
+            <input type="submit" name="delete" value="confirm delete account"/>
+        </div>
+        
+        <input type="hidden" name="operation" value="delete"/>
+    </form>
+    {% endraw %}
+</body>
+
+</html>
