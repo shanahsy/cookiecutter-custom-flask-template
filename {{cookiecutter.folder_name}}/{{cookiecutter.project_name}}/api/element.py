@@ -1,7 +1,7 @@
 """REST API for posts."""
 import sys
 import flask
-import insta485
+import {{cookiecutter.project_name}}
 from {{cookiecutter.project_name}}.views.login import check_credentials
 
 LOGGER = flask.logging.create_logger({{cookiecutter.project_name}}.app)
